@@ -19,6 +19,7 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         public string SettingsDescriptionLabel => _loc["HomeSettingsDescription"];
         public string FooterLabel => _loc["HomeFooter"];
         public string WindowsEditionLabel => _loc["WindowsEdition"];
+        public string AboutLabel => _loc["AboutTitle"];
 
 
         public HomeViewModel(ILocalizationService loc)
@@ -38,6 +39,7 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
                 OnPropertyChanged(nameof(SettingsDescriptionLabel));
                 OnPropertyChanged(nameof(FooterLabel));
                 OnPropertyChanged(nameof(WindowsEditionLabel));
+                OnPropertyChanged(nameof(AboutLabel));
             };
         }
 
@@ -57,6 +59,12 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         private async Task NavigateSettings()
         {
             await Shell.Current.GoToAsync("settings");
+        }
+
+        [RelayCommand]
+        private async Task NavigateAbout()
+        {
+            await Shell.Current.GoToAsync("about");
         }
     }
 }

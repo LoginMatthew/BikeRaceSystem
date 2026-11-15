@@ -12,6 +12,7 @@ namespace BikeRaceSystem.UI.Maui
             Routing.RegisterRoute("race", typeof(RacePage));
             Routing.RegisterRoute("statistics", typeof(StatisticsPage));
             Routing.RegisterRoute("settings", typeof(SettingsPage));
+            Routing.RegisterRoute("about", typeof(AboutPage));
         }
     }
 }

@@ -176,6 +176,16 @@
   <data name="WindowsEdition">
     <value>Windows edition</value>
   </data>
+
+  <data name="AboutTitle">
+    <value>About</value>
+  </data>
+  <data name="AboutDescription">
+    <value>A volunteer-built program for schoolchildren to race two sensor-equipped bicycles. Set up each race in the control interface and follow the results in a separate display window.</value>
+  </data>
+  <data name="AboutDeveloper">
+    <value>Created by LoginMatthew ©2026</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ School Race</value>
   </data>
@@ -288,4 +298,8 @@
     <value>Open extended window</value>
   </data>
 </root>
+
+
+
+
 

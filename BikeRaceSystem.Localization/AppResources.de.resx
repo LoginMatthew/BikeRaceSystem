@@ -173,6 +173,16 @@
   <data name="WindowsEdition">
     <value>Windows-Version</value>
   </data>
+
+  <data name="AboutTitle">
+    <value>Über das Projekt</value>
+  </data>
+  <data name="AboutDescription">
+    <value>Ein ehrenamtlich entwickeltes Programm für Schulkinder, bei dem zwei Fahrräder mit Sensoren gegeneinander antreten. Das Rennen wird in der Steuerungsoberfläche konfiguriert; die Ergebnisse erscheinen in einem separaten Anzeigefenster.</value>
+  </data>
+  <data name="AboutDeveloper">
+    <value>Entwickelt von LoginMatthew ©2026</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ Schulrennen</value>
   </data>
@@ -288,4 +298,8 @@
     <value>Erweitertes Fenster öffnen</value>
   </data>
 </root>
+
+
+
+
 

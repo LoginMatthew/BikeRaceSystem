@@ -82,12 +82,14 @@ namespace BikeRaceSystem.UI.Maui
 
             //ViewModels
             builder.Services.AddTransient<HomeViewModel>();
+            builder.Services.AddTransient<AboutViewModel>();
             builder.Services.AddSingleton<RaceViewModel>();
             builder.Services.AddTransient<StatisticsViewModel>();
             builder.Services.AddTransient<SettingsViewModel>();
 
             //Pages
             builder.Services.AddTransient<HomePage>();
+            builder.Services.AddTransient<AboutPage>();
             builder.Services.AddSingleton<RacePage>();
             builder.Services.AddTransient<StatisticsPage>();
             builder.Services.AddTransient<SettingsPage>();

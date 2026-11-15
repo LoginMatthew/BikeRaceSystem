@@ -1,6 +1,7 @@
 # Build outputs and NuGet intermediates
 **/bin/
 **/obj/
+.dotnet-home/
 
 # Visual Studio local state
 .vs/

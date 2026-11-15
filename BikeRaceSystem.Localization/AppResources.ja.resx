@@ -176,6 +176,16 @@
   <data name="WindowsEdition">
     <value>Windows版</value>
   </data>
+
+  <data name="AboutTitle">
+    <value>このアプリについて</value>
+  </data>
+  <data name="AboutDescription">
+    <value>ボランティアが制作した、子どもたちがセンサー付き自転車2台で競走するためのプログラムです。操作画面でレースを設定し、別ウィンドウで結果を表示します。</value>
+  </data>
+  <data name="AboutDeveloper">
+    <value>制作: LoginMatthew ©2026</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ 学校レース</value>
   </data>
@@ -288,4 +298,8 @@
     <value>リセット</value>
   </data>
 </root>
+
+
+
+
 

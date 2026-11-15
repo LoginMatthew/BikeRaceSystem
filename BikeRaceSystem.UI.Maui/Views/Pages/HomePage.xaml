@@ -118,10 +118,13 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+            <Grid Grid.Row="3" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10">
                 <Label Text="{Binding FooterLabel}" FontSize="12" TextColor="#87958D" />
                 <Label Grid.Column="1" Text="{Binding WindowsEditionLabel}" FontSize="10"
                        FontAttributes="Bold" TextColor="#A0ACA5" CharacterSpacing="1" />
+                <Button Grid.Column="2" Text="{Binding AboutLabel}" Command="{Binding NavigateAboutCommand}"
+                        FontSize="12" Padding="10,4" MinimumHeightRequest="34"
+                        BackgroundColor="Transparent" TextColor="#527261" />
             </Grid>
         </Grid>
     </ScrollView>

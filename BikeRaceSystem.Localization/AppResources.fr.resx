@@ -176,6 +176,16 @@
   <data name="WindowsEdition">
     <value>Version Windows</value>
   </data>
+
+  <data name="AboutTitle">
+    <value>À propos</value>
+  </data>
+  <data name="AboutDescription">
+    <value>Un programme bénévole destiné aux élèves, pour organiser des courses entre deux vélos équipés de capteurs. Configurez chaque course dans l’interface de contrôle et suivez les résultats dans une fenêtre distincte.</value>
+  </data>
+  <data name="AboutDeveloper">
+    <value>Créé par LoginMatthew ©2026</value>
+  </data>
   <data name="AppTitle">
     <value>Course scolaire XYZ</value>
   </data>
@@ -288,4 +298,8 @@
     <value>Réinitialiser</value>
   </data>
 </root>
+
+
+
+
 

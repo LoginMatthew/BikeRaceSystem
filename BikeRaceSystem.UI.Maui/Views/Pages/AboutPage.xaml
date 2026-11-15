@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BikeRaceSystem.UI.Maui.Views.Pages.AboutPage"
+             Title="{Binding PageTitle}"
+             BackgroundColor="#F3F6F4">
+    <ScrollView>
+        <VerticalStackLayout Padding="32" Spacing="22" MaximumWidthRequest="900"
+                             HorizontalOptions="Center">
+            <Label Text="🚴" FontSize="56" HorizontalOptions="Center" />
+            <Label Text="{Binding PageTitle}" FontSize="32" FontAttributes="Bold"
+                   TextColor="#173D2D" HorizontalTextAlignment="Center" />
+            <Border BackgroundColor="White" Stroke="#E3EAE6" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20" Padding="26">
+                <Label Text="{Binding Description}" FontSize="17" TextColor="#42564A"
+                       LineBreakMode="WordWrap" />
+            </Border>
+            <Label Text="{Binding DeveloperCredit}" FontSize="15" FontAttributes="Bold"
+                   TextColor="#527261" HorizontalTextAlignment="Center" />
+            <Button Text="{Binding BackLabel}" Command="{Binding GoBackCommand}"
+                    BackgroundColor="#245A40" TextColor="White" CornerRadius="12"
+                    HorizontalOptions="Center" Padding="22,12" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

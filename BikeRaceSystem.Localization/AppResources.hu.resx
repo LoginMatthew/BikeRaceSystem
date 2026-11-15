@@ -176,6 +176,16 @@
   <data name="WindowsEdition">
     <value>Windows-verzió</value>
   </data>
+
+  <data name="AboutTitle">
+    <value>Rólunk</value>
+  </data>
+  <data name="AboutDescription">
+    <value>Önkéntes fejlesztésű program iskolások számára, amelyben két szenzoros kerékpár versenyez. A futam a kezelőfelületen állítható be, az eredmény külön kijelzőablakban követhető.</value>
+  </data>
+  <data name="AboutDeveloper">
+    <value>Készítette: LoginMatthew ©2026</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ Iskola Versenye</value>
   </data>
@@ -288,4 +298,8 @@
     <value>Kiterjesztett ablak megnyitása</value>
   </data>
 </root>
+
+
+
+
 
