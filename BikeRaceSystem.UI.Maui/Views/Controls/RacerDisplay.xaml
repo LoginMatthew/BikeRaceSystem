@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="BikeRaceSystem.UI.Maui.Views.Controls.RacerDisplay"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Spacing="20">
+
+        <Label Text="{Binding Name}"
+               FontSize="48"
+               TextColor="White"
+               HorizontalOptions="Center" />
+
+        <Border StrokeThickness="4"
+        Stroke="#00FFFF"
+        HeightRequest="400"
+        WidthRequest="150"
+        BackgroundColor="#111">
+
+            <Grid>
+
+                <BoxView x:Name="Liquid"
+                 VerticalOptions="End"
+                 HeightRequest="{Binding Progress, Converter={StaticResource ProgressToHeightConverter}, ConverterParameter=400}">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Color="#00BFFF" Offset="0.0" />
+                            <GradientStop Color="#1E90FF" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+
+            </Grid>
+
+        </Border>
+
+        <ProgressBar Progress="{Binding Progress}"
+                     ProgressColor="#00BFFF"
+                     BackgroundColor="#222"
+                     HeightRequest="10" />
+
+        <Label Text="{Binding Speed, StringFormat='{0:F1} km/h'}"
+               FontSize="36"
+               TextColor="Yellow"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding Status}"
+               FontSize="32"
+               TextColor="Gold"
+               HorizontalOptions="Center"
+               Margin="0,20,0,0" />
+        
+        <Label Text="⭐"
+               FontSize="64"
+               TextColor="Gold"
+               HorizontalOptions="Center"
+               IsVisible="{Binding IsWinner}" />
+
+    </VerticalStackLayout>
+
+</ContentView>

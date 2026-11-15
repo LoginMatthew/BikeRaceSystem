@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BikeRaceSystem.UI.Maui.Views.Extended.Race.ExtendedRacePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:BikeRaceSystem.UI.Maui.Views.Controls"
+    BackgroundColor="Black">
+
+    <Grid>
+
+        <!-- Háttér -->
+        <Image
+            Source="{Binding BackgroundImagePath}"
+            Aspect="AspectFill"
+            Opacity="0.35" />
+
+        <!-- Fő elrendezés -->
+        <Grid RowDefinitions="Auto, *, Auto">
+
+            <!-- 1. sor: AppTitle -->
+            <Label 
+                Grid.Row="0"
+                Text="{Binding AppTitle}" 
+                FontSize="48" 
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Margin="0,20,0,20" />
+
+            <!-- 2. sor: Versenyzők -->
+            <Grid Grid.Row="1" ColumnDefinitions="*,*">
+                <controls:RacerDisplay BindingContext="{Binding Racer1}" Grid.Column="0" />
+                <controls:RacerDisplay BindingContext="{Binding Racer2}" Grid.Column="1" />
+            </Grid>
+
+            <!-- 3. sor: Visszaszámláló / START -->
+            <Grid Grid.Row="2">
+
+                <Label Text="{Binding CountdownValue}"
+                       FontSize="200"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="{Binding IsCountdownVisible}" />
+
+                <Label Text="{Binding StartSignalText}"
+                       FontSize="200"
+                       TextColor="Lime"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="{Binding IsStartVisible}" />
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

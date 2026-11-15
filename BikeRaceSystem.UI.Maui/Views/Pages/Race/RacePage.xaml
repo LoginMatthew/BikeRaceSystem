@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BikeRaceSystem.UI.Maui.Views.Pages.Race.RacePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Main Title -->
+        <Label Text="{Binding AppTitle}" 
+               FontSize="24" 
+               HorizontalOptions="Center" />
+
+        <!-- Competitor names (non-editable) -->
+        <Label Text="{Binding Racer1Name}" FontSize="18" />
+        <Label Text="{Binding Racer2Name}" FontSize="18" />
+
+        <!-- Distance -->
+        <HorizontalStackLayout>
+            <Label Text="{Binding DistanceLabel}" />
+            <Label Text="{Binding Distance}" />
+        </HorizontalStackLayout>
+
+        <!-- Time -->
+        <HorizontalStackLayout>
+            <Label Text="{Binding TimeLabel}" />
+            <Label Text="{Binding Time}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="{Binding CountdownLabel}" />
+            <Label Text="{Binding CountdownTime}" />
+        </HorizontalStackLayout>
+
+
+
+        <!-- Parameters -->
+        <Button Text="{Binding EditParametersLabel}"
+                Command="{Binding EditParametersCommand}"
+                IsEnabled="{Binding IsRaceRunning, Converter={StaticResource InverseBoolConverter}}"/>
+
+        <!-- Race Control -->
+        <Button Text="{Binding StartLabel}"
+            Command="{Binding StartRaceCommand}"
+            IsEnabled="{Binding IsRaceRunning, Converter={StaticResource InverseBoolConverter}}" />
+
+        <Button Text="{Binding StopLabel}"
+            Command="{Binding StopRaceCommand}"
+            IsEnabled="{Binding IsRaceRunning}" />
+
+        <Button Text="{Binding ResetLabel}"
+                Command="{Binding ResetRaceCommand}" />
+
+        <!-- Race extension -->
+        <Button Text="{Binding ExtendRaceLabel}"
+        Command="{Binding ShowExtendedRaceCommand}"
+        IsEnabled="{Binding IsRaceRunning, Converter={StaticResource InverseBoolConverter}}" />
+
+        <!-- Expanding statistics -->
+        <Button Text="{Binding ExtendStatisticsLabel}"
+        Command="{Binding ShowExtendedStatisticsCommand}"
+        IsEnabled="{Binding IsRaceRunning, Converter={StaticResource InverseBoolConverter}}" />
+
+        <!-- Close extension -->
+        <Button Text="{Binding CloseExtendedLabel}"
+        Command="{Binding CloseExtendedWindowCommand}"
+        IsVisible="{Binding IsExtendedWindowOpen}"
+        IsEnabled="{Binding IsRaceRunning, Converter={StaticResource InverseBoolConverter}}" />
+
+        <HorizontalStackLayout HorizontalOptions="Fill" Spacing="20">
+
+            
+            <Button Text="{Binding BackLabel}"
+                    Command="{Binding NavigateBackCommand}"
+                    HorizontalOptions="EndAndExpand" />
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

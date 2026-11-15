@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BikeRaceSystem.UI.Maui.Views.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="5">
+
+            <!-- Title -->
+            <Label Text="{Binding SettingLabel}"
+                   FontSize="32"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+
+            <!-- Language -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding LanguageLabel}" FontSize="20" TextColor="Black" />
+                <Picker ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding SelectedLanguage}" />
+            </VerticalStackLayout>
+
+            <!-- Race Mode -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding DataSourceLabel}" FontSize="20" TextColor="Black" />
+                <Picker ItemsSource="{Binding RaceModes}"
+                        SelectedItem="{Binding SelectedRaceMode}" />
+            </VerticalStackLayout>
+
+            <!-- Sensor Settings -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding SensorSettingsLabel}" FontSize="20" TextColor="Black" />
+                <Label Text="{Binding SensorProtocolHelp}" FontSize="12" />
+                <Label Text="{Binding Sensor1Label}" FontSize="16" />
+                <Picker Title="{Binding TransportLabel}" ItemsSource="{Binding SensorTransports}" SelectedItem="{Binding Sensor1Transport}" />
+                <Entry Text="{Binding Sensor1Ip}" Placeholder="{Binding IPplaceholder}" />
+                <Entry Text="{Binding Sensor1Port}" Placeholder="TCP port" Keyboard="Numeric" />
+                <Entry Text="{Binding Sensor1ComPort}" Placeholder="{Binding ComPortLabel}" />
+                <Entry Text="{Binding Sensor1BaudRate}" Placeholder="{Binding BaudRateLabel}" Keyboard="Numeric" />
+
+                <Label Text="{Binding Sensor2Label}" FontSize="16" />
+                <Picker Title="{Binding TransportLabel}" ItemsSource="{Binding SensorTransports}" SelectedItem="{Binding Sensor2Transport}" />
+                <Entry Text="{Binding Sensor2Ip}" Placeholder="{Binding IPplaceholder}" />
+                <Entry Text="{Binding Sensor2Port}" Placeholder="TCP port" Keyboard="Numeric" />
+                <Entry Text="{Binding Sensor2ComPort}" Placeholder="{Binding ComPortLabel}" />
+                <Entry Text="{Binding Sensor2BaudRate}" Placeholder="{Binding BaudRateLabel}" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <!-- Database Settings -->
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding ResetDatabaseLabel}" FontSize="20" TextColor="Black" />
+
+                <Button Text="{Binding ResetDatabaseLabel}" Command="{Binding ResetDatabaseCommand}" />
+            </VerticalStackLayout>
+
+            <!-- Buttons -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Button Text="{Binding SaveLabel}"
+                        Command="{Binding SaveSensorSettingsCommand}" />
+
+                <Button Text="{Binding BackLabel}"
+                        Command="{Binding NavigateBackCommand}" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,21 @@
+# Build outputs and NuGet intermediates
+**/bin/
+**/obj/
+
+# Visual Studio local state
+.vs/
+*.suo
+*.user
+*.csproj.user
+
+# Local application data
+*.db
+*.db-shm
+*.db-wal
+
+# IDE/editor files
+.idea/
+.vscode/
+*.userosscache
+*.sln.docstates
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BikeRaceSystem.UI.Maui.Views.Pages.HomePage" >
+
+    <VerticalStackLayout Padding="5">
+
+        <Button Text="{Binding StartLabel}"
+                Command="{Binding NavigateRaceCommand}" />
+
+        <Button Text="{Binding StatisticsLabel}"
+                Command="{Binding NavigateStatisticsCommand}" />
+
+        <Button Text="{Binding SettingsLabel}"
+                Command="{Binding NavigateSettingsCommand}" />
+
+    </VerticalStackLayout>
+</ContentPage>

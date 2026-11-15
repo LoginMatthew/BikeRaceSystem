@@ -1,0 +1,22 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BikeRaceSystem.UI.Maui"
+             xmlns:conv="clr-namespace:BikeRaceSystem.UI.Maui.Converters"
+             x:Class="BikeRaceSystem.UI.Maui.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Styles -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Converters -->
+            <conv:ProgressToHeightConverter x:Key="ProgressToHeightConverter" />
+            <conv:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <conv:StringToIntConverter x:Key="StringToIntConverter" />
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

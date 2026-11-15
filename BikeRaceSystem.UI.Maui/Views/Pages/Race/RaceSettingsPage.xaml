@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BikeRaceSystem.UI.Maui.Views.Pages.Race.RaceSettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry Placeholder="{Binding AppTitleLabel}"
+       Text="{Binding AppTitle}" />
+
+
+        <Entry Placeholder="{Binding Racer1Label}"
+               Text="{Binding Racer1Name}" />
+
+        <Entry Placeholder="{Binding Racer2Label}"
+               Text="{Binding Racer2Name}" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="{Binding DistanceLabel}" />
+            <Entry Text="{Binding Distance, Converter={StaticResource StringToIntConverter}}" Keyboard="Numeric" WidthRequest="80" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="{Binding TimeLabel}" />
+            <Entry Text="{Binding Time, Converter={StaticResource StringToIntConverter}}" Keyboard="Numeric" WidthRequest="80" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="{Binding CountdownLabel}" />
+            <Entry Text="{Binding CountdownTime, Converter={StaticResource StringToIntConverter}}" Keyboard="Numeric" WidthRequest="80" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="{Binding BrowseImageLabel}"
+            Command="{Binding BrowseImageCommand}" />
+
+            <Image Source="{Binding SelectedImagePath}" WidthRequest="80"  HeightRequest="80"  Aspect="AspectFill" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="{Binding SaveLabel}"
+                    Command="{Binding SaveCommand}" />
+            <Button Text="{Binding CancelLabel}"
+                    Command="{Binding CancelCommand}" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>
