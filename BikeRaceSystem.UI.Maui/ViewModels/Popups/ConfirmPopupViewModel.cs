@@ -11,25 +11,22 @@ public class ConfirmPopupViewModel
     public string NoLabel => _loc["No"];
 
     private readonly Popup _popup;
-    private readonly Action _onConfirm;
     private readonly ILocalizationService _loc;
 
-    public ConfirmPopupViewModel(string message, Popup popup, Action onConfirm, ILocalizationService loc)
+    public ConfirmPopupViewModel(string message, Popup popup, ILocalizationService loc)
     {
         Message = message;
         _popup = popup;
-        _onConfirm = onConfirm;
         _loc = loc;
     }
 
-    public IRelayCommand YesCommand => new RelayCommand(() =>
+    public IAsyncRelayCommand YesCommand => new AsyncRelayCommand(async () =>
     {
-        _popup.Close();
-        _onConfirm?.Invoke();
+        await _popup.CloseAsync(true);
     });
 
-    public IRelayCommand NoCommand => new RelayCommand(() =>
+    public IAsyncRelayCommand NoCommand => new AsyncRelayCommand(async () =>
     {
-        _popup.Close();
+        await _popup.CloseAsync(false);
     });
 }

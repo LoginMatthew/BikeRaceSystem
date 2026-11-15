@@ -157,6 +157,25 @@
   <data name="RaceSettingsTitle" xml:space="preserve">
     <value>Verseny bállításai</value>
     </data>
+
+  <data name="HomeRaceTag">
+    <value>Két bringa. Egy közös cél.</value>
+  </data>
+  <data name="HomeWelcomeSubtitle">
+    <value>Állítsd be a versenyt, majd indulhat a rajt.</value>
+  </data>
+  <data name="HomeStatisticsDescription">
+    <value>Eredmények és korábbi versenyek áttekintése.</value>
+  </data>
+  <data name="HomeSettingsDescription">
+    <value>Verseny és szenzorok beállítása.</value>
+  </data>
+  <data name="HomeFooter">
+    <value>Közösségi önkéntes projekt</value>
+  </data>
+  <data name="WindowsEdition">
+    <value>Windows-verzió</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ Iskola Versenye</value>
   </data>
@@ -269,3 +288,4 @@
     <value>Kiterjesztett ablak megnyitása</value>
   </data>
 </root>
+

@@ -120,35 +120,30 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         [RelayCommand]
         private async Task SaveSensorSettings()
         {
-            await Shell.Current.ShowPopupAsync(
-                new ConfirmPopup(
-                    _loc["ConfirmSave"],
-                    () =>
-                    {
-                        _config.Set("RaceMode", SelectedRaceMode);
-                        _config.Set("Language", SelectedLanguage);
+            var confirmationResult = await Shell.Current.ShowPopupAsync(new ConfirmPopup(_loc["ConfirmSave"]));
+            if (confirmationResult is not true)
+                return;
 
-                        var cfg = _appConfigService.Load();
-                        cfg.Sensor.Racer1.Transport = Sensor1Transport;
-                        cfg.Sensor.Racer1.Ip = Sensor1Ip;
-                        cfg.Sensor.Racer1.TcpPort = Sensor1Port;
-                        cfg.Sensor.Racer1.ComPort = Sensor1ComPort;
-                        cfg.Sensor.Racer1.BaudRate = Sensor1BaudRate;
-                        cfg.Sensor.Ip = Sensor1Ip;
-                        cfg.Sensor.Port = Sensor1Port;
-                        cfg.Sensor.Racer2.Transport = Sensor2Transport;
-                        cfg.Sensor.Racer2.Ip = Sensor2Ip;
-                        cfg.Sensor.Racer2.TcpPort = Sensor2Port;
-                        cfg.Sensor.Racer2.ComPort = Sensor2ComPort;
-                        cfg.Sensor.Racer2.BaudRate = Sensor2BaudRate;
-                        _appConfigService.Save(cfg);
+            _config.Set("RaceMode", SelectedRaceMode);
+            _config.Set("Language", SelectedLanguage);
 
-                        _loc.ChangeLanguage(SelectedLanguage);
+            var cfg = _appConfigService.Load();
+            cfg.Sensor.Racer1.Transport = Sensor1Transport;
+            cfg.Sensor.Racer1.Ip = Sensor1Ip;
+            cfg.Sensor.Racer1.TcpPort = Sensor1Port;
+            cfg.Sensor.Racer1.ComPort = Sensor1ComPort;
+            cfg.Sensor.Racer1.BaudRate = Sensor1BaudRate;
+            cfg.Sensor.Ip = Sensor1Ip;
+            cfg.Sensor.Port = Sensor1Port;
+            cfg.Sensor.Racer2.Transport = Sensor2Transport;
+            cfg.Sensor.Racer2.Ip = Sensor2Ip;
+            cfg.Sensor.Racer2.TcpPort = Sensor2Port;
+            cfg.Sensor.Racer2.ComPort = Sensor2ComPort;
+            cfg.Sensor.Racer2.BaudRate = Sensor2BaudRate;
+            _appConfigService.Save(cfg);
 
-                        Shell.Current.ShowPopupAsync(new NotifyPopup(_loc["Saved"]));
-                    }
-                )
-            );
+            _loc.ChangeLanguage(SelectedLanguage);
+            await Shell.Current.ShowPopupAsync(new NotifyPopup(_loc["Saved"]));
         }
 
         [RelayCommand]
@@ -160,20 +155,15 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         [RelayCommand]
         private async Task ResetDatabase()
         {
-            await Shell.Current.ShowPopupAsync(
-                new ConfirmPopup(
-                    _loc["ConfirmResetDatabase"],
-                    async () =>
-                    {
-                        var newPath = await _databaseService.ResetDatabaseAsync();
+            var confirmationResult = await Shell.Current.ShowPopupAsync(new ConfirmPopup(_loc["ConfirmResetDatabase"]));
+            if (confirmationResult is not true)
+                return;
 
-                        var holder = MauiProgram.Services.GetRequiredService<DbPathHolder>();
-                        holder.Path = newPath;
+            var newPath = await _databaseService.ResetDatabaseAsync();
+            var holder = MauiProgram.Services.GetRequiredService<DbPathHolder>();
+            holder.Path = newPath;
 
-                        await Shell.Current.ShowPopupAsync(new NotifyPopup(_loc["DatabaseResetSuccess"]));
-                    }
-                )
-            );
+            await Shell.Current.ShowPopupAsync(new NotifyPopup(_loc["DatabaseResetSuccess"]));
         }
     }
 }

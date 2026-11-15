@@ -154,6 +154,25 @@
   <data name="RaceSettingsTitle">
     <value>Renneinstellungen</value>
   </data>
+
+  <data name="HomeRaceTag">
+    <value>Zwei Fahrräder. Eine Ziellinie.</value>
+  </data>
+  <data name="HomeWelcomeSubtitle">
+    <value>Richte das Rennen ein und starte den Wettkampf.</value>
+  </data>
+  <data name="HomeStatisticsDescription">
+    <value>Ergebnisse und frühere Rennen ansehen.</value>
+  </data>
+  <data name="HomeSettingsDescription">
+    <value>Rennen und Sensoren konfigurieren.</value>
+  </data>
+  <data name="HomeFooter">
+    <value>Ein ehrenamtliches Gemeinschaftsprojekt.</value>
+  </data>
+  <data name="WindowsEdition">
+    <value>Windows-Version</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ Schulrennen</value>
   </data>
@@ -269,3 +288,4 @@
     <value>Erweitertes Fenster öffnen</value>
   </data>
 </root>
+

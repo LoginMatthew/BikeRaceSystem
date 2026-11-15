@@ -157,6 +157,25 @@
   <data name="RaceSettingsTitle" xml:space="preserve">
     <value>Race settings title </value>
 </data>
+
+  <data name="HomeRaceTag">
+    <value>Two bikes. One finish line.</value>
+  </data>
+  <data name="HomeWelcomeSubtitle">
+    <value>Set up your race, then get ready to start.</value>
+  </data>
+  <data name="HomeStatisticsDescription">
+    <value>Review results and previous races.</value>
+  </data>
+  <data name="HomeSettingsDescription">
+    <value>Configure races and sensors.</value>
+  </data>
+  <data name="HomeFooter">
+    <value>A community volunteer project.</value>
+  </data>
+  <data name="WindowsEdition">
+    <value>Windows edition</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ School Race</value>
   </data>
@@ -269,3 +288,4 @@
     <value>Open extended window</value>
   </data>
 </root>
+

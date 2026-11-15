@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BikeRaceSystem.UI.Maui.Views.Extended.Statistics.ExtendedStatisticsPage"
-             Title="ExtendedStatisticsPage">
+             Title="{Binding PageTitle}">
     <ScrollView x:Name="AutoScrollView">
         <VerticalStackLayout BindableLayout.ItemsSource="{Binding TodayRaces}">
             <BindableLayout.ItemTemplate>

@@ -1,18 +1,128 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BikeRaceSystem.UI.Maui.Views.Pages.HomePage" >
+             x:Class="BikeRaceSystem.UI.Maui.Views.Pages.HomePage"
+             BackgroundColor="#F3F6F4"
+             SizeChanged="OnHomeSizeChanged"
+             Shell.NavBarIsVisible="False">
 
-    <VerticalStackLayout Padding="5">
+    <ContentPage.Resources>
+        <Style x:Key="ActionCard" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Stroke" Value="#E3EAE6" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 18" />
+            <Setter Property="Padding" Value="20" />
+        </Style>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#EAF3EE" />
+            <Setter Property="TextColor" Value="#153B2B" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+        </Style>
+    </ContentPage.Resources>
 
-        <Button Text="{Binding StartLabel}"
-                Command="{Binding NavigateRaceCommand}" />
+    <ScrollView>
+        <Grid x:Name="HomeLayout" Padding="36,28" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="26"
+              MaximumWidthRequest="1180" HorizontalOptions="Center">
 
-        <Button Text="{Binding StatisticsLabel}"
-                Command="{Binding NavigateStatisticsCommand}" />
+            <!-- Compact product header -->
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Border WidthRequest="44" HeightRequest="44" BackgroundColor="#173D2D"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 14">
+                    <Label Text="🚴" FontSize="23" HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" />
+                </Border>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                    <Label Text="BIKE RACE" FontSize="12" FontAttributes="Bold"
+                           TextColor="#527261" CharacterSpacing="2" />
+                    <Label Text="{Binding AppNameLabel}" FontSize="18" FontAttributes="Bold"
+                           TextColor="#173D2D" />
+                </VerticalStackLayout>
+                <Border x:Name="StatusPill" Grid.Column="2" Padding="12,8" BackgroundColor="White"
+                        Stroke="#E3EAE6" StrokeShape="RoundRectangle 14" VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="7" VerticalOptions="Center">
+                        <Ellipse WidthRequest="8" HeightRequest="8" Fill="#34A46C" />
+                        <Label Text="{Binding ReadyLabel}" FontSize="12" TextColor="#527261"
+                               VerticalTextAlignment="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+            </Grid>
 
-        <Button Text="{Binding SettingsLabel}"
-                Command="{Binding NavigateSettingsCommand}" />
+            <!-- Main race callout -->
+            <Border Grid.Row="1" Padding="34" StrokeThickness="0" StrokeShape="RoundRectangle 26">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="#153B2B" Offset="0.0" />
+                        <GradientStop Color="#245A40" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid x:Name="HeroLayout" ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                    <VerticalStackLayout Spacing="14" VerticalOptions="Center">
+                        <Border Padding="10,5" BackgroundColor="#2E684B" StrokeThickness="0"
+                                StrokeShape="RoundRectangle 10" HorizontalOptions="Start">
+                            <Label Text="{Binding RaceSettingsLabel}" FontSize="11"
+                                   FontAttributes="Bold" TextColor="#D6F4A5" CharacterSpacing="1" />
+                        </Border>
+                        <Label x:Name="HeroTitle" Text="{Binding StartLabel}" FontSize="34" FontAttributes="Bold"
+                               TextColor="White" LineBreakMode="WordWrap" />
+                        <Label Text="{Binding WelcomeSubtitleLabel}" FontSize="15"
+                               TextColor="#D5E5DB" LineBreakMode="WordWrap" />
+                        <Button Text="{Binding StartLabel}" Command="{Binding NavigateRaceCommand}"
+                                BackgroundColor="#C6F36B" TextColor="#173D2D" FontSize="15"
+                                FontAttributes="Bold" CornerRadius="13" Padding="20,13"
+                                HorizontalOptions="Start" />
+                    </VerticalStackLayout>
+                    <Grid x:Name="HeroArt" Grid.Column="1" WidthRequest="230" HeightRequest="190"
+                          VerticalOptions="Center" HorizontalOptions="Center">
+                        <Ellipse WidthRequest="184" HeightRequest="184" Fill="#2D6247"
+                                 HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label Text="🏁" FontSize="46" HorizontalOptions="Center"
+                               VerticalOptions="Start" Margin="0,14,0,0" />
+                        <Label Text="🚴‍♂️" FontSize="88" HorizontalOptions="Center"
+                               VerticalOptions="End" Margin="0,0,0,5" />
+                    </Grid>
+                </Grid>
+            </Border>
 
-    </VerticalStackLayout>
+            <!-- Secondary destinations -->
+            <Grid x:Name="ActionsLayout" Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="18">
+                <Border x:Name="StatisticsCard" Style="{StaticResource ActionCard}">
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+                        <Label Text="📊" FontSize="27" />
+                        <VerticalStackLayout Grid.Row="1" Spacing="4">
+                            <Label Text="{Binding StatisticsLabel}" FontSize="18"
+                                   FontAttributes="Bold" TextColor="#173D2D" />
+                            <Label Text="{Binding StatisticsDescriptionLabel}" FontSize="13"
+                                   TextColor="#718178" />
+                        </VerticalStackLayout>
+                        <Button Grid.Row="2" Text="{Binding StatisticsLabel}"
+                                Command="{Binding NavigateStatisticsCommand}" Style="{StaticResource ActionButton}" />
+                    </Grid>
+                </Border>
+                <Border x:Name="SettingsCard" Grid.Column="1" Style="{StaticResource ActionCard}">
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+                        <Label Text="⚙️" FontSize="27" />
+                        <VerticalStackLayout Grid.Row="1" Spacing="4">
+                            <Label Text="{Binding SettingsLabel}" FontSize="18"
+                                   FontAttributes="Bold" TextColor="#173D2D" />
+                            <Label Text="{Binding SettingsDescriptionLabel}" FontSize="13"
+                                   TextColor="#718178" />
+                        </VerticalStackLayout>
+                        <Button Grid.Row="2" Text="{Binding SettingsLabel}"
+                                Command="{Binding NavigateSettingsCommand}" Style="{StaticResource ActionButton}" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+                <Label Text="{Binding FooterLabel}" FontSize="12" TextColor="#87958D" />
+                <Label Grid.Column="1" Text="{Binding WindowsEditionLabel}" FontSize="10"
+                       FontAttributes="Bold" TextColor="#A0ACA5" CharacterSpacing="1" />
+            </Grid>
+        </Grid>
+    </ScrollView>
 </ContentPage>

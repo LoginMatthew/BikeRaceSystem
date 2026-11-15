@@ -22,6 +22,9 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         private readonly IRaceServiceFactory _factory;
         private readonly IRaceService _raceService;
         private readonly IRaceEngineService _engineService;
+        private string _defaultRacer1Name = string.Empty;
+        private string _defaultRacer2Name = string.Empty;
+        private string _defaultAppTitle = string.Empty;
 
         private CancellationTokenSource? _countdownCts;
         private Window? _extendedWindow;
@@ -34,6 +37,9 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
             _factory = factory;
             _engineService = raceEngineService;
             _raceService = _factory.GetService();
+            _defaultRacer1Name = Racer1Name = _loc["Racer1"];
+            _defaultRacer2Name = Racer2Name = _loc["Racer2"];
+            _defaultAppTitle = AppTitle = _loc["AppTitle"];
             _engineService.ProgressChanged += OnProgressChanged;
             _engineService.Failed += OnRaceFailed;
             _loc.LanguageChanged += OnLanguageChanged;
@@ -50,11 +56,11 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
         private string? currentExtendedMode; // "Race", "Statistics", null
 
         // Racer names
-        [ObservableProperty] private string racer1Name = "Versenyző 1";
-        [ObservableProperty] private string racer2Name = "Versenyző 2";
+        [ObservableProperty] private string racer1Name = string.Empty;
+        [ObservableProperty] private string racer2Name = string.Empty;
 
         // App title
-        [ObservableProperty] private string appTitle = "Iskola versenye";
+        [ObservableProperty] private string appTitle = string.Empty;
 
         // Race parameters
         [ObservableProperty] private int distance = 500;
@@ -309,6 +315,24 @@ namespace BikeRaceSystem.UI.Maui.ViewModels
 
         private void OnLanguageChanged()
         {
+            if (Racer1Name == _defaultRacer1Name)
+                Racer1Name = _loc["Racer1"];
+            if (Racer2Name == _defaultRacer2Name)
+                Racer2Name = _loc["Racer2"];
+            if (AppTitle == _defaultAppTitle)
+                AppTitle = _loc["AppTitle"];
+
+            _defaultRacer1Name = _loc["Racer1"];
+            _defaultRacer2Name = _loc["Racer2"];
+            _defaultAppTitle = _loc["AppTitle"];
+
+            if (IsStartVisible)
+                StartSignalText = StartSignalLabel;
+            if (Racer1Place > 0)
+                Racer1Status = $"🏆 {Racer1Name} {_loc["Winner"]}! {_loc["Time"]}: {Racer1Time:0.0} {_loc["Seconds"]}";
+            if (Racer2Place > 0)
+                Racer2Status = $"🏆 {Racer2Name} {_loc["Finished"]}! {_loc["Time"]}: {Racer2Time:0.0} {_loc["Seconds"]}";
+
             OnPropertyChanged(nameof(StartLabel));
             OnPropertyChanged(nameof(StopLabel));
             OnPropertyChanged(nameof(ResetLabel));

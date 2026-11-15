@@ -157,6 +157,25 @@
   <data name="RaceSettingsTitle" xml:space="preserve">
     <value>レース設定</value>
 </data>
+
+  <data name="HomeRaceTag">
+    <value>二台の自転車、一つのゴール。</value>
+  </data>
+  <data name="HomeWelcomeSubtitle">
+    <value>レースを設定して、スタートの準備をしましょう。</value>
+  </data>
+  <data name="HomeStatisticsDescription">
+    <value>結果や過去のレースを確認します。</value>
+  </data>
+  <data name="HomeSettingsDescription">
+    <value>レースとセンサーを設定します。</value>
+  </data>
+  <data name="HomeFooter">
+    <value>地域ボランティアのプロジェクト</value>
+  </data>
+  <data name="WindowsEdition">
+    <value>Windows版</value>
+  </data>
   <data name="AppTitle">
     <value>XYZ 学校レース</value>
   </data>
@@ -269,3 +288,4 @@
     <value>リセット</value>
   </data>
 </root>
+

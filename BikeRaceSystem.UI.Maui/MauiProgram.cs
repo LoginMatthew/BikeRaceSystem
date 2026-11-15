@@ -60,7 +60,9 @@ namespace BikeRaceSystem.UI.Maui
             //Data
             builder.Services.AddSingleton<DbPathHolder>();
 
-            builder.Services.AddSingleton<IDatabaseService>(sp =>
+            // Resolve the database path on each use. The reset action rotates the active
+            // database file, so a singleton would keep initializing the old path.
+            builder.Services.AddTransient<IDatabaseService>(sp =>
             {
                 var holder = sp.GetRequiredService<DbPathHolder>();
                 Console.WriteLine("DB PATH = " + holder.Path);

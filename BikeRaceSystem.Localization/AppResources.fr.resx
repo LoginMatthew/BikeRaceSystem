@@ -157,6 +157,25 @@
   <data name="RaceSettingsTitle" xml:space="preserve">
     <value>Paramètres de la course</value>
 </data>
+
+  <data name="HomeRaceTag">
+    <value>Deux vélos. Un objectif commun.</value>
+  </data>
+  <data name="HomeWelcomeSubtitle">
+    <value>Configurez la course avant le départ.</value>
+  </data>
+  <data name="HomeStatisticsDescription">
+    <value>Consultez les résultats et les courses précédentes.</value>
+  </data>
+  <data name="HomeSettingsDescription">
+    <value>Configurez les courses et les capteurs.</value>
+  </data>
+  <data name="HomeFooter">
+    <value>Un projet bénévole communautaire.</value>
+  </data>
+  <data name="WindowsEdition">
+    <value>Version Windows</value>
+  </data>
   <data name="AppTitle">
     <value>Course scolaire XYZ</value>
   </data>
@@ -269,3 +288,4 @@
     <value>Réinitialiser</value>
   </data>
 </root>
+

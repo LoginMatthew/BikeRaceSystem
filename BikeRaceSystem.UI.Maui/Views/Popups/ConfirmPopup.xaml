@@ -4,48 +4,24 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="Transparent"
     CanBeDismissedByTappingOutsideOfPopup="False">
 
-    <Grid BackgroundColor="#80000080">
-
-        <Frame
-            BackgroundColor="White"
-            CornerRadius="12"
-            HasShadow="True"
-            Padding="20"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            MaximumWidthRequest="420"
-            MinimumWidthRequest="260">
-
-            <VerticalStackLayout Spacing="20">
-
-                <!-- Text -->
-                <ScrollView>
-                    <Label
-                        Text="{Binding Message}"
-                        FontSize="18"
-                        HorizontalTextAlignment="Center"
-                        LineBreakMode="WordWrap" />
-                </ScrollView>
-
-                <!-- Buttons -->
-                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
-                    <Button
-                        Text="{Binding YesLabel}"
-                        Command="{Binding YesCommand}"
-                        WidthRequest="120" />
-
-                    <Button
-                        Text="{Binding NoLabel}"
-                        Command="{Binding NoCommand}"
-                        WidthRequest="120" />
-                </HorizontalStackLayout>
-
-            </VerticalStackLayout>
-
-        </Frame>
-
-    </Grid>
-
+    <Border BackgroundColor="White" Stroke="#DCE5DF" StrokeThickness="1"
+            StrokeShape="RoundRectangle 20" Padding="24" Margin="12"
+            HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid RowDefinitions="*,Auto" RowSpacing="20">
+            <ScrollView Grid.Row="0" MaximumHeightRequest="150">
+                <Label Text="{Binding Message}" FontSize="18" TextColor="#183B2B"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       LineBreakMode="WordWrap" />
+            </ScrollView>
+            <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="{Binding YesLabel}" Command="{Binding YesCommand}"
+                        BackgroundColor="#245A40" TextColor="White" />
+                <Button Grid.Column="1" Text="{Binding NoLabel}" Command="{Binding NoCommand}"
+                        BackgroundColor="#EAF3EE" TextColor="#173D2D" />
+            </Grid>
+        </Grid>
+    </Border>
 </toolkit:Popup>
